@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Aniversário, Vanessa! 🎂</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #fdf6ec;
+      --blush: #e8a598;
+      --rose: #c1685a;
+      --gold: #c9962c;
+      --gold-light: #f0c96e;
+      --dark: #2a1a12;
+      --warm: #7a3d2e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--dark);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── CONFETTI ── */
+    .confetti-wrap {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .dot {
+      position: absolute; top: -20px; border-radius: 50%;
+      animation: fall linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes fall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+      background: radial-gradient(ellipse at 50% 30%, #fde8d8 0%, #fdf6ec 70%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(201,150,44,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(232,165,152,0.18) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .badge {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1rem, 3vw, 1.4rem);
+      color: var(--gold);
+      letter-spacing: 0.05em;
+      margin-bottom: 1.2rem;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--rose);
+      animation: fadeDown 0.9s 0.1s ease both;
+    }
+
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      font-size: clamp(2rem, 7vw, 5rem);
+      color: var(--warm);
+    }
+
+    .hero-name {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2.5rem, 8vw, 5.5rem);
+      color: var(--gold);
+      margin: 0.4rem 0 1.6rem;
+      animation: fadeDown 1s 0.2s ease both;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-style: italic;
+      color: var(--warm);
+      max-width: 520px;
+      line-height: 1.7;
+      animation: fadeDown 1s 0.3s ease both;
+    }
+
+    .divider {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 2rem auto; max-width: 340px; width: 100%;
+      animation: fadeDown 1s 0.4s ease both;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--gold-light);
+    }
+    .divider-icon { color: var(--gold); font-size: 1.4rem; }
+
+    .scroll-cta {
+      margin-top: 2.5rem;
+      animation: bounce 2s infinite, fadeDown 1s 0.6s ease both;
+      font-size: 1.6rem; color: var(--blush);
+    }
+    @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; }
+
+    /* ── MESSAGE ── */
+    .message-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #fff9f3 0%, #fdf0e4 100%);
+      text-align: center;
+    }
+
+    .section-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem; color: var(--gold);
+      margin-bottom: 0.8rem; display: block;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--rose); margin-bottom: 2rem;
+    }
+
+    .message-card {
+      max-width: 680px; margin: 0 auto;
+      background: white;
+      border: 1px solid #f0d9c8;
+      border-radius: 2px;
+      padding: 3rem;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(193,104,90,0.08);
+    }
+    .message-card::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem; line-height: 1;
+      color: var(--gold-light);
+      position: absolute; top: -0.5rem; left: 1.5rem;
+      pointer-events: none;
+    }
+
+    .message-text {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      line-height: 1.9;
+      color: #5a3a28;
+      font-style: italic;
+    }
+
+    .message-sign {
+      margin-top: 1.5rem;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: var(--rose);
+    }
+
+    /* ── PHOTOS ── */
+    .photos-section {
+      padding: 6rem 2rem;
+      background: var(--cream);
+    }
+
+    .photos-section .section-title { text-align: center; }
+
+    .photos-intro {
+      text-align: center;
+      font-size: 1rem; color: #9a6a55;
+      margin-bottom: 3.5rem; font-style: italic;
+    }
+
+    .photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto;
+    }
+
+    .photo-slot {
+      position: relative; overflow: hidden;
+      background: #f5e8dc;
+      border: 1.5px solid #d8b89a;
+      border-radius: 2px;
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(193,104,90,0.08);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .photo-slot:hover {
+      box-shadow: 0 12px 36px rgba(201,150,44,0.15);
+      transform: translateY(-4px);
+    }
+
+    .photo-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── FEATURED PHOTO (large) ── */
+    .photo-slot.featured {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    @media (max-width: 600px) {
+      .photo-slot.featured { grid-column: span 1; aspect-ratio: 1/1; }
+    }
+
+    /* ── WISHES ── */
+    .wishes-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #c1685a 0%, #a04d40 100%);
+      color: white; text-align: center;
+    }
+
+    .wishes-section .section-label { color: var(--gold-light); }
+    .wishes-section .section-title { color: white; }
+
+    .wishes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem; max-width: 900px; margin: 3rem auto 0;
+    }
+
+    .wish-card {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 2px; padding: 2rem 1.5rem;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .wish-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.18); }
+
+    .wish-emoji { font-size: 2.2rem; display: block; margin-bottom: 0.8rem; }
+    .wish-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; margin-bottom: 0.5rem;
+    }
+    .wish-desc { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 2rem; text-align: center;
+      background: var(--dark); color: #c8a888;
+      font-size: 0.9rem; font-style: italic;
+    }
+    footer span { color: var(--gold-light); }
+
+    /* ── FLOATING BALLOONS ── */
+    .balloons {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      pointer-events: none; z-index: 0;
+      overflow: hidden; height: 100%;
+    }
+    .balloon {
+      position: absolute; bottom: -120px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      animation: rise linear infinite;
+      opacity: 0.6;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(0) rotate(-5deg); opacity: 0.6; }
+      50%  { transform: translateY(-50vh) rotate(5deg); }
+      100% { transform: translateY(-110vh) rotate(-3deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Confetti -->
+<div class="confetti-wrap" id="confetti"></div>
+
+<!-- Hero -->
+<section class="hero">
+  <p class="badge">✨ Uma data muito especial ✨</p>
+  <h1 class="hero-title">
+    Feliz
+    <span>Aniversário</span>
+  </h1>
+  <p class="hero-name">Vanessa Massaranduba</p>
+  <p class="hero-sub">Que este dia seja tão incrível quanto você é — cheio de alegria, amizade e tudo de mais bonito que a vida tem!</p>
+
+  <div class="divider">
+    <span class="divider-icon">🌸</span>
+  </div>
+
+  <div class="scroll-cta">↓</div>
+</section>
+
+<!-- Message -->
+<section class="message-section">
+  <span class="section-label">Com carinho</span>
+  <h2 class="section-title">Uma mensagem especial</h2>
+  <div class="message-card">
+    <p class="message-text">
+      Vanessa, hoje é o seu dia — e eu não poderia deixar passar sem te dizer o quanto você é especial. Sua amizade é daquelas que a gente guarda no coração com muito cuidado, porque sabe que é rara de verdade. Você tem uma energia que ilumina tudo ao redor, uma risada que contagia, e uma força que inspira.
+      <br><br>
+      Que neste aniversário você receba tudo o que você semeia com tanto carinho — alegria, leveza e muito motivo pra sorrir. Feliz aniversário, Vá! 🎉
+    </p>
+    <p class="message-sign">Do seu amigo, com muito carinho 🤎</p>
+  </div>
+</section>
+
+<!-- Photos -->
+<section class="photos-section">
+  <span class="section-label" style="display:block;text-align:center;">Memórias</span>
+  <h2 class="section-title">Nossas fotos juntos</h2>
+  <p class="photos-intro">Adicione aqui os melhores momentos que vocês viveram juntos 📸</p>
+
+  <div class="photos-grid">
+    <div class="photo-slot featured">
+      <img src="img1.png" alt="Foto 1">
+    </div>
+    <div class="photo-slot">
+      <img src="img2.png" alt="Foto 2">
+    </div>
+    <div class="photo-slot">
+      <img src="img3.png" alt="Foto 3">
+    </div>
+    <div class="photo-slot">
+      <img src="img4.png" alt="Foto 4">
+    </div>
+    <div class="photo-slot">
+      <img src="img5.png" alt="Foto 5">
+    </div>
+    <div class="photo-slot">
+      <img src="img6.png" alt="Foto 6">
+    </div>
+    <div class="photo-slot">
+      <img src="img7.png" alt="Foto 7">
+    </div>
+  </div>
+</section>
+
+<!-- Wishes -->
+<section class="wishes-section">
+  <span class="section-label">Para você</span>
+  <h2 class="section-title">Os nossos votos</h2>
+  <div class="wishes-grid">
+    <div class="wish-card">
+      <span class="wish-emoji">💛</span>
+      <p class="wish-title">Muita Felicidade</p>
+      <p class="wish-desc">Que cada dia te traga motivos novos para sorrir e se sentir grata.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-emoji">🌟</span>
+      <p class="wish-title">Saúde Plena</p>
+      <p class="wish-desc">Que você tenha energia e disposição para viver cada momento ao máximo.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-emoji">🌺</span>
+      <p class="wish-title">Amor Verdadeiro</p>
+      <p class="wish-desc">Que o amor te cerque em todas as formas e em todos os lugares.</p>
+    </div>
+    <div class="wish-card">
+      <span class="wish-emoji">✨</span>
+      <p class="wish-title">Sonhos Realizados</p>
+      <p class="wish-desc">Que este ano seja o da realização dos seus maiores sonhos e projetos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  Feito com <span>♥</span> para celebrar você — hoje e sempre.
+</footer>
+
+<script>
+  /* ── CONFETTI ── */
+  const confettiWrap = document.getElementById('confetti');
+  const colors = ['#e8a598','#c9962c','#f0c96e','#c1685a','#fde8d8','#a04d40','#f7d6c4'];
+  const sizes  = [6,8,10,12,14];
+
+  for (let i = 0; i < 55; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    const size = sizes[Math.floor(Math.random() * sizes.length)];
+    dot.style.cssText = `
+      width: ${size}px; height: ${size}px;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      left: ${Math.random() * 100}%;
+      animation-duration: ${4 + Math.random() * 8}s;
+      animation-delay: ${Math.random() * 8}s;
+    `;
+    confettiWrap.appendChild(dot);
+  }
+
+  /* ── SCROLL ANIMATIONS ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.message-card, .photo-slot, .wish-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
